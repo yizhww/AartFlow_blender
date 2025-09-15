@@ -12,14 +12,14 @@
 <img src="https://img.shields.io/badge/License-GPL--3.0-green?style=flat-square" alt="License">
 </p>
 
-## 📖 项目概述
+## 项目概述
 
 AartFlow 是一个高度模块化的 Blender 插件系统，专为 Blender 4.2+ 设计。它通过智能集成器动态发现并整合多个独立脚本模块，为 Blender 用户提供统一、可扩展的工作流解决方案。项目采用代理面板机制，保持各模块的独立性，同时提供统一的用户界面。
 
-## 📚 文档索引
+## 文档索引
 
 ### Project Pages
-- [Main Website](docs/) - 完整文档中心
+- [Main Website](docs/README.md) - 完整文档中心
 - [User Guide](docs/tutorials.md) - 用户使用指南
 - [User Community](docs/support.md) - 用户社区支持
 
