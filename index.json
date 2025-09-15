@@ -9,7 +9,7 @@
       "tagline": "Modular Blender add-on integration system",
       "version": "1.0.0",
       "type": "add-on",
-      "maintainer": "yizhww",
+      "maintainer": "yizhww <yzh_1234@qq.com>",
       "license": [
         "SPDX:GPL-3.0-or-later"
       ],

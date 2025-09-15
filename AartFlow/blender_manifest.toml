@@ -13,7 +13,8 @@ type = "add-on"
 blender_version_min = "4.2.0"
 
 # 维护者与项目链接
-maintainers = ["yizhww"]
+maintainers = ["yizhww <yzh_1234@qq.com>"]
+maintainer = "yizhww <yzh_1234@qq.com>"
 website = "https://github.com/yizhww/AartFlow_blender"
 issue_tracker = "https://github.com/yizhww/AartFlow_blender/issues"
 
