@@ -36,7 +36,7 @@ See [docs/license.md](docs/license.md) for details.
 ---
 
 <p align="center">
-<strong>📚 [查看完整文档](docs/) | 🚀 [快速开始](docs/quick-start.md) | 🤝 [参与贡献](docs/contributing.md)</strong>
+<strong>📚 [查看完整文档](docs/README.md) | 🚀 [快速开始](docs/quick-start.md) | 🤝 [参与贡献](docs/contributing.md)</strong>
 </p>
 
 <p align="center">
