@@ -1,0 +1,28 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Blender temp/backup
+*.blend1
+*.blend2
+*.blend@*
+*.tmp
+*.log
+
+# Local/Build
+AartFlow_Plugin.zip
+/dist/
+*.zip
+
+# IDE
+.vscode/
+.idea/
+
+# External bundles (do not commit)
+blender-4.2.0-windows-x64/
+blender_config/

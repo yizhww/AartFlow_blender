@@ -1,0 +1,17 @@
+{
+    "name": "AartFlow",
+    "version": "1.0.0",
+    "blender": "4.2.0",
+    "author": "AartFlow Team",
+    "description": "AartFlow 艺术渲染和测量工具集，提供专业的渲染、测量、数据绘图等功能",
+    "category": "Render",
+    "location": "View3D > Sidebar > AartFlow",
+    "doc_url": "",
+    "tracker_url": "",
+    "support": "COMMUNITY",
+    "tags": ["render", "measurement", "data", "art", "visualization"],
+    "maintainer": "AartFlow Team",
+    "license": "GPL-3.0",
+    "warning": "",
+    "blender_version": "4.2.0"
+}
