@@ -1,6 +1,6 @@
 ﻿# AartFlow Blender Add-on
 
-![AartFlow Logo](AartFlow/README.md)
+![AartFlow Logo](1.png)
 
 <p align="center">
 <strong>基于模块化架构的 Blender 插件集成系统</strong>
@@ -75,6 +75,7 @@ AartFlow_blender/
 ├── README.md                           # 项目说明文档
 ├── LICENSE                             # GPL-3.0 许可证
 ├── .gitignore                          # Git 忽略规则
+├── 1.png                               # AartFlow Logo
 └── AartFlow/                           # 插件主目录
     ├── __init__.py                     # 插件入口点（包含 bl_info）
     ├── AARTFLOW_integration.py         # 核心集成器
