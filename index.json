@@ -22,9 +22,9 @@
         "Measurement",
         "Visualization"
       ],
-      "archive_url": "https://cdn.jsdelivr.net/gh/yizhww/AartFlow_blender@main/releases/AartFlow-1.0.0.zip",
-      "archive_size": 88879,
-      "archive_hash": "sha256:80d4538d56c47a3a33dd90030f1bc1e4f80933e029dd2e2fcff20c4a9a19d796"
+      "archive_url": "https://yizhww.github.io/AartFlow_blender/releases/AartFlow-1.0.0.zip",
+      "archive_size": 88898,
+      "archive_hash": "sha256:3843823b7888b203c138482de097078246080b5777237880028cf07240740d63"
     }
   ]
 }

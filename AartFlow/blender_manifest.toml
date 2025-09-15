@@ -9,8 +9,9 @@ version = "1.0.0"
 tagline = "Modular Blender add-on integration system"
 type = "add-on"
 
-# 兼容的 Blender 最低版本
+# 兼容的 Blender 版本范围
 blender_version_min = "4.2.0"
+blender_version_max = "4.7.0"
 
 # 维护者与项目链接
 maintainers = ["yizhww <yzh_1234@qq.com>"]
@@ -20,6 +21,6 @@ issue_tracker = "https://github.com/yizhww/AartFlow_blender/issues"
 
 # 许可证与标签（使用 SPDX 标识）
 license = ["SPDX:GPL-3.0-or-later"]
-tags = ["Render", "User Interface", "Measurement", "Visualization"]
+tags = ["3D View", "Render", "User Interface", "Measurement", "Visualization"]
 
 
