@@ -1,27 +1,30 @@
 {
-  "version": 1,
-  "schema_version": "1.0.0",
-  "repository": {
-    "name": "AartFlow Extensions",
-    "description": "Self-hosted Blender 4.2+ extensions repository",
-    "homepage": "https://github.com/yizhww/AartFlow_blender"
-  },
-  "packages": [
+  "version": "v1",
+  "blocklist": [],
+  "data": [
     {
+      "schema_version": "1.0.0",
       "id": "aartflow_blender",
       "name": "AartFlow",
-      "type": "add-on",
+      "tagline": "Modular Blender add-on integration system",
       "version": "1.0.0",
+      "type": "add-on",
+      "maintainer": "yizhww",
+      "license": [
+        "SPDX:GPL-3.0-or-later"
+      ],
       "blender_version_min": "4.2.0",
+      "blender_version_max": "4.7.0",
       "website": "https://github.com/yizhww/AartFlow_blender",
-      "issue_tracker": "https://github.com/yizhww/AartFlow_blender/issues",
-      "license": ["SPDX:GPL-3.0-or-later"],
-      "tags": ["Render", "UI", "Measurement", "Visualization"],
-      "download": {
-        "url": "https://cdn.jsdelivr.net/gh/yizhww/AartFlow_blender@main/releases/AartFlow-1.0.0.zip",
-        "checksum": "D9FD9EE4F8922DB34E6A7FBB4F76FBFE7CA1A2C8EADF90B8E9666B2EDCDC9651",
-        "size": 88855
-      }
+      "tags": [
+        "Render",
+        "UI",
+        "Measurement",
+        "Visualization"
+      ],
+      "archive_url": "https://cdn.jsdelivr.net/gh/yizhww/AartFlow_blender@main/releases/AartFlow-1.0.0.zip",
+      "archive_size": 88855,
+      "archive_hash": "sha256:d9fd9ee4f8922db34e6a7fbb4f76fbfe7ca1a2c8eadf90b8e9666b2edcdc9651"
     }
   ]
 }
