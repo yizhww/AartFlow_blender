@@ -1,6 +1,6 @@
 ﻿# AartFlow Blender Add-on
 
-![AartFlow Logo](1.png)
+![AartFlow Logo](texture/1.png)
 
 <p align="center">
 <strong>基于模块化架构的 Blender 插件集成系统</strong>
