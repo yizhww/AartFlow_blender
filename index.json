@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "repository": {
+    "name": "AartFlow Extensions",
+    "description": "Self-hosted Blender 4.2+ extensions repository",
+    "homepage": "https://github.com/yizhww/AartFlow_blender"
+  },
+  "packages": [
+    {
+      "id": "aartflow_blender",
+      "name": "AartFlow",
+      "type": "add-on",
+      "version": "1.0.0",
+      "blender_version_min": "4.2.0",
+      "website": "https://github.com/yizhww/AartFlow_blender",
+      "issue_tracker": "https://github.com/yizhww/AartFlow_blender/issues",
+      "license": ["SPDX:GPL-3.0-or-later"],
+      "tags": ["Render", "UI", "Measurement", "Visualization"],
+      "download": {
+        "url": "https://github.com/yizhww/AartFlow_blender/releases/download/v1.0.0/AartFlow-1.0.0.zip",
+        "checksum": "<fill-after-release>",
+        "size": 0
+      }
+    }
+  ]
+}
+
+

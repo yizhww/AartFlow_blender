@@ -1,0 +1,24 @@
+schema_version = "1.0.0"
+
+# 唯一扩展 ID，建议小写蛇形命名
+id = "aartflow_blender"
+
+# 扩展基本信息
+name = "AartFlow"
+version = "1.0.0"
+tagline = "Modular Blender add-on integration system"
+type = "add-on"
+
+# 兼容的 Blender 最低版本
+blender_version_min = "4.2.0"
+
+# 维护者与项目链接
+maintainers = ["yizhww"]
+website = "https://github.com/yizhww/AartFlow_blender"
+issue_tracker = "https://github.com/yizhww/AartFlow_blender/issues"
+
+# 许可证与标签（使用 SPDX 标识）
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["Render", "User Interface", "Measurement", "Visualization"]
+
+
