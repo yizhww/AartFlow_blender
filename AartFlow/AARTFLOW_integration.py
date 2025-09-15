@@ -175,9 +175,28 @@ import importlib.util
 import sys
 import os
 from types import FunctionType
+import types
 
 # 外部业务脚本绝对路径（全局配置参数）
 _MODULE_PATHS = {}
+
+# 合规的扩展命名空间前缀（与 blender_manifest.toml 的 id 对应）
+_EXT_NAMESPACE_PREFIX = "bl_ext.aartflow_blender"
+
+def _ensure_ext_namespace_packages():
+    """确保 bl_ext 以及 bl_ext.<id> 作为包存在于 sys.modules。"""
+    try:
+        if 'bl_ext' not in sys.modules:
+            bl_ext_pkg = types.ModuleType('bl_ext')
+            setattr(bl_ext_pkg, '__path__', [])
+            sys.modules['bl_ext'] = bl_ext_pkg
+        ns_name = _EXT_NAMESPACE_PREFIX
+        if ns_name not in sys.modules:
+            ns_pkg = types.ModuleType(ns_name)
+            setattr(ns_pkg, '__path__', [])
+            sys.modules[ns_name] = ns_pkg
+    except Exception:
+        pass
 
 # 自动发现并加载 scripts 目录中的脚本
 def _discover_script_modules():
@@ -248,7 +267,8 @@ _focused_module_key = None
 def _load_ext_module(modname: str, filepath: str):
     if not filepath or not os.path.exists(filepath):
         raise FileNotFoundError("找不到模块文件: " + str(filepath))
-    pkgname = "aartflow_ext." + modname
+    _ensure_ext_namespace_packages()
+    pkgname = f"{_EXT_NAMESPACE_PREFIX}.{modname}"
     if pkgname in sys.modules:
         try:
             del sys.modules[pkgname]
@@ -516,7 +536,7 @@ class AF_OT_add_integration_module(bpy.types.Operator):
         try:
             # 清理旧缓存
             for _k in list(sys.modules.keys()):
-                if _k.startswith("aartflow_ext."):
+                if _k.startswith(f"{_EXT_NAMESPACE_PREFIX}."):
                     try:
                         del sys.modules[_k]
                     except Exception:
@@ -893,7 +913,7 @@ def _reload_one_module_and_remount(module_key: str):
     except Exception:
         pass
     try:
-        mod_full = f"aartflow_ext.{key}"
+        mod_full = f"{_EXT_NAMESPACE_PREFIX}.{key}"
         if mod_full in sys.modules:
             del sys.modules[mod_full]
     except Exception:
@@ -1002,7 +1022,7 @@ def _create_proxy_panel(original_panel_class):
             # 如果设置了聚焦模块，仅显示来自该模块的面板
             try:
                 if _focused_module_key:
-                    return base_ok and original_module.startswith(f"aartflow_ext.{_focused_module_key}")
+                    return base_ok and original_module.startswith(f"{_EXT_NAMESPACE_PREFIX}.{_focused_module_key}")
             except Exception:
                 pass
             return base_ok
@@ -1204,7 +1224,7 @@ def _cleanup_removed_module(key):
         print(f"[AARTFLOW] 已从已加载模块中移除: {key}")
     
     # 4. 清理 sys.modules
-    mod_full = f"aartflow_ext.{key}"
+    mod_full = f"{_EXT_NAMESPACE_PREFIX}.{key}"
     if mod_full in sys.modules:
         del sys.modules[mod_full]
         print(f"[AARTFLOW] 已从 sys.modules 中移除: {mod_full}")
@@ -1335,12 +1355,12 @@ def _clear_all_integrations():
     # 4) 清理 sys.modules 中的动态导入模块
     try:
         for _k in list(sys.modules.keys()):
-            if _k.startswith("aartflow_ext."):
+            if _k.startswith(f"{_EXT_NAMESPACE_PREFIX}."):
                 try:
                     del sys.modules[_k]
                 except Exception:
                     pass
-        print("[AARTFLOW] sys.modules 中的 aartflow_ext.* 已清空")
+        print(f"[AARTFLOW] sys.modules 中的 {_EXT_NAMESPACE_PREFIX}.* 已清空")
     except Exception as e:
         print(f"[AARTFLOW] 清理 sys.modules 失败: {e}")
 
@@ -1384,11 +1404,11 @@ def _clear_all_integrations():
 
 def _force_unload_module_panels(module_key: str):
     """强制卸载属于指定模块的所有面板（非代理），通过 __module__ 前缀匹配。
-    例如模块键 standardview → aartflow_ext.standardview.*
+    例如模块键 standardview → bl_ext.aartflow_blender.standardview.*
     """
     try:
-        prefix = f"aartflow_ext.{(module_key or '').strip()}"
-        if not prefix or prefix == "aartflow_ext.":
+        prefix = f"{_EXT_NAMESPACE_PREFIX}.{(module_key or '').strip()}"
+        if not prefix or prefix == f"{_EXT_NAMESPACE_PREFIX}.":
             return
         removed = 0
         for attr_name in dir(bpy.types):
