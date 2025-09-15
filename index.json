@@ -17,7 +17,7 @@
       "license": ["SPDX:GPL-3.0-or-later"],
       "tags": ["Render", "UI", "Measurement", "Visualization"],
       "download": {
-        "url": "https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/releases/AartFlow-1.0.0.zip",
+        "url": "https://cdn.jsdelivr.net/gh/yizhww/AartFlow_blender@main/releases/AartFlow-1.0.0.zip",
         "checksum": "D9FD9EE4F8922DB34E6A7FBB4F76FBFE7CA1A2C8EADF90B8E9666B2EDCDC9651",
         "size": 88855
       }
