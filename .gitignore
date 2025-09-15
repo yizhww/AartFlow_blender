@@ -17,7 +17,9 @@ venv/
 # Local/Build
 AartFlow_Plugin.zip
 /dist/
+# 允许仓库内的 releases 打包产物被索引
 *.zip
+!releases/*.zip
 
 # IDE
 .vscode/
