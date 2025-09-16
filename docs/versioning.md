@@ -26,4 +26,4 @@
 
 ---
 
-[← 返回文档中心](README.md) | [贡献指南 →](contributing.md)
+[← 返回文档中心](README.md) | [贡献与支持 →](contributing-and-support.md)

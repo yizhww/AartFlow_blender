@@ -35,8 +35,7 @@ docs/
 ├── module-development.md        # 模块开发
 ├── development-standards.md     # 开发标准
 ├── documentation-standards.md   # 文档规范（本文件）
-├── contributing.md              # 贡献指南
-├── support.md                   # 支持与社区
+├── contributing-and-support.md  # 贡献与支持
 ├── license.md                   # 许可证
 └── versioning.md                # 版本管理
 ```
@@ -538,7 +537,7 @@ Made with ❤️ for the Blender Community
 
 - [返回文档中心](./README.md)
 - [开发标准](./development-standards.md)
-- [贡献指南](./contributing.md)
+- [贡献与支持](./contributing-and-support.md)
 
 ---
 

@@ -81,8 +81,7 @@ AartFlow_blender/
 │   ├── api-reference.md               # API 参考
 │   ├── packaging.md                   # 打包发布
 │   ├── versioning.md                  # 版本管理
-│   ├── contributing.md                # 贡献指南
-│   ├── support.md                     # 问题反馈
+│   ├── contributing-and-support.md    # 贡献与支持
 │   └── license.md                     # 许可证信息
 └── AartFlow/                          # 插件主目录
     ├── __init__.py                    # 插件入口点

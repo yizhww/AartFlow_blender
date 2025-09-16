@@ -24,8 +24,7 @@
 - [版本管理](versioning.md) - 版本控制和更新策略
 
 ### 🤝 贡献与支持
-- [贡献指南](contributing.md) - 如何参与项目贡献
-- [问题反馈](support.md) - 问题报告和获取帮助
+- [贡献与支持](contributing-and-support.md) - 参与贡献和获取帮助
 - [许可证](license.md) - 项目许可证信息
 
 ---

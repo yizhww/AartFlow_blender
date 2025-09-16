@@ -346,7 +346,7 @@ docs/
 ├── development.md           # 开发指南
 ├── module-development.md    # 模块开发规范
 ├── development-standards.md # 开发标准（本文件）
-└── contributing.md          # 贡献指南
+└── contributing-and-support.md  # 贡献与支持
 ```
 
 ### 2. 文档编写规范

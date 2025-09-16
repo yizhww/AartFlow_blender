@@ -49,7 +49,7 @@ A: 确保在文本编辑器中运行脚本，而不是直接执行。
 ### 获取帮助
 
 如果遇到问题，请：
-1. 查看 [问题反馈](support.md)
+1. 查看 [贡献与支持](contributing-and-support.md)
 2. 在 GitHub Issues 中搜索相关问题
 3. 创建新的 Issue 描述您的问题
 
