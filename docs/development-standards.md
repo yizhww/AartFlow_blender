@@ -155,7 +155,73 @@ git tag -a v1.0.1 -m "Release version 1.0.1"
 git push origin main --tags
 ```
 
-### 3. 变更日志
+### 3. 版本一致性校验与常见错误
+
+#### Package version mismatch（remote: "X", archive: "Y"）
+
+- **错误现象**: 安装时报错 `Package version mismatch (remote: "X", archive: "Y")`。
+- **根因**: 远端索引文件 `index.json` 中的 `data[0].version` 与压缩包内部 `manifest.json.version` 不一致，或 `archive_url` 指向了旧包。
+- **自检清单**:
+  - 确认 `index.json` 中：
+    - `version` 与目标版本一致
+    - `archive_url` 指向最新包（建议使用 `raw.githubusercontent` 指向仓库 `dist`）
+    - `archive_size` 与 `archive_hash` 与实际压缩包一致
+  - 解压或读取压缩包内的 `manifest.json`，确认其中 `version` 与 `index.json` 一致
+  - 资源发布/缓存：若通过 GitHub Pages 提供索引，变更后可能有缓存延时，等待数分钟或强制刷新
+
+**校验示例（PowerShell）**
+
+```powershell
+# 1) 读取压缩包内部 manifest.json 的版本
+$zip = "dist/AartFlow-1.0.1.zip"
+$dst = "tmp_check"
+if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
+Expand-Archive -Path $zip -DestinationPath $dst -Force
+# 兼容两种布局：根目录或 AartFlow/ 目录
+$manifestPath = @("$dst/manifest.json", "$dst/AartFlow/manifest.json") | Where-Object { Test-Path $_ } | Select-Object -First 1
+$manifest = Get-Content $manifestPath | ConvertFrom-Json
+Write-Host "archive manifest version = $($manifest.version)"
+
+# 2) 计算压缩包大小与 SHA256（用于写入 index.json）
+$size = (Get-Item $zip).Length
+$hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+Write-Host "archive_size = $size"
+Write-Host "archive_hash = sha256:$hash"
+
+# 3) 快速验证下载链接可用（返回 200 即正常）
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/dist/AartFlow-1.0.1.zip" -Method Head -UseBasicParsing | Select-Object -ExpandProperty StatusCode
+```
+
+**参考**
+- 在线扩展库索引：[`https://yizhww.github.io/AartFlow_blender/index.json`](https://yizhww.github.io/AartFlow_blender/index.json)
+
+#### 在线索引 404（HTTP 404 Not Found）
+
+- **错误现象**: 安装时报错 `install: HTTP error (HTTP Error 404: Not Found) reading '.../index.json'`。
+- **根因**:
+  - URL 拼写或路径大小写错误（`AartFlow_blender` 与 `aartflow_blender` 等）。
+  - GitHub Pages 未部署或部署工件未包含 `index.json`。
+  - 部署工作流产物路径不匹配（例如上传 `public/` 但未将 `index.json` 复制进去）。
+  - 默认分支/目录变动导致路径失效。
+  - Pages/CDN 缓存延迟。
+- **快速排查**:
+  - 直接访问索引 URL，或使用 PowerShell 检查：
+    ```powershell
+    Invoke-WebRequest -Uri "https://yizhww.github.io/AartFlow_blender/index.json" -Method Head -UseBasicParsing | Select-Object -ExpandProperty StatusCode
+    ```
+  - 查看仓库 Pages 设置与最近一次部署日志，确认成功并包含 `index.json`。
+  - 核对工作流是否将根目录 `index.json` 复制到发布目录（例如 `public/index.json`）并作为 Pages 工件上传。
+  - 验证原始链接可用性（用于快速定位是部署问题还是文件缺失）：
+    ```powershell
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/index.json" -Method Head -UseBasicParsing | Select-Object -ExpandProperty StatusCode
+    ```
+- **修复建议**:
+  - 更正 URL 与路径大小写；若迁移过目录/分支，更新链接。
+  - 修正并触发 Pages 工作流，确保上传工件包含 `index.json`（例如将根 `index.json` 复制到 `public/` 后上传）。
+  - 等待数分钟或添加查询参数（例如 `?t=timestamp`）绕过缓存。
+  - 紧急安装可临时改用原始链接作为索引（仅测试用）：`https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/index.json`。
+
+### 4. 变更日志
 在每次发布时更新CHANGELOG.md：
 ```markdown
 ## [1.0.1] - 2025-09-16
