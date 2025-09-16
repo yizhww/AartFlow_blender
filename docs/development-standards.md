@@ -145,6 +145,9 @@ git commit -m "docs(api): 更新API文档"
 # 1. 更新版本号
 # 在 manifest.json 中更新版本号
 
+# 打包 ZIP（必须先打包，再更新 index.json）
+./package.ps1 -Version "1.0.1"
+
 # 2. 更新 index.json
 # 更新版本号、文件大小、哈希值
 
@@ -249,6 +252,29 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yizhww/AartFlow_blende
     Invoke-WebRequest -Uri "https://yizhww.github.io/AartFlow_blender/index.json?t=$(Get-Date -UFormat %s)" -Method Get -UseBasicParsing | % Content
     ```
 
+#### Archive size mismatch（大小不一致）
+
+- **错误现象**: `Archive size mismatch "<id>", expected <expected>, was <actual>`。
+- **根因**:
+  - `index.json` 中的 `archive_size` 与真实 ZIP 大小（字节）不一致（常见于打包后未同步更新索引）。
+  - 远端缓存返回旧 ZIP，导致大小与本地不同。
+- **自检清单**:
+  - 本地计算 ZIP 大小：
+    ```powershell
+    (Get-Item dist/AartFlow-1.0.1.zip).Length
+    ```
+  - 对比 `index.json` 的 `archive_size` 数值是否一致（单位均为字节）。
+  - 如使用 Pages/CDN，等待缓存或改用原始链接二次确认：
+    ```powershell
+    iwr https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/dist/AartFlow-1.0.1.zip -OutFile _tmp.zip
+    (Get-Item _tmp.zip).Length
+    Remove-Item _tmp.zip -Force
+    ```
+- **修复建议**:
+  - 以本地实际 ZIP 为准，更新 `index.json.archive_size`（与 `archive_hash` 一并更新）。
+  - 严格遵循发布顺序：先打包 → 再更新 `index.json` → 再提交推送。
+  - 必要时在 `archive_url` 添加查询参数（如 `?t=<timestamp>`）以绕过缓存。
+
 ### 4. 变更日志
 在每次发布时更新CHANGELOG.md：
 ```markdown
@@ -286,6 +312,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yizhww/AartFlow_blende
 ```
 
 ### 3. 发布流程
+注意：发布顺序必须为“先打包 → 再更新 index.json → 再提交推送”，否则容易出现 Archive size/hash mismatch。
 ```bash
 # 1. 重新打包
 .\package.ps1 -Version "1.0.1"
