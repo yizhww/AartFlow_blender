@@ -60,7 +60,7 @@ def _static_render_complete(scene, depsgraph=None):
 class ArtRendererOperatorFront(bpy.types.Operator):
     """逐个渲染指定集合中的物体（修复版）"""
     bl_idname = "render.art_render_collection_fixed"
-    bl_label = "artrender_front"
+    bl_label = "artRenderFront"
     bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod
@@ -567,11 +567,11 @@ classes.append(ArtRendererOperatorFront)
 
 class VIEW3D_PT_ArtRendererPanelFixed(bpy.types.Panel):
     """3D视图侧边栏中的Art Renderer面"""
-    bl_label = "artrender_front"
+    bl_label = "artRenderFront"
     bl_idname = "VIEW3D_PT_art_renderer_fixed"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'artrender_front'
+    bl_category = 'artRenderFront'
     bl_context = "objectmode"
 
     def draw(self, context):

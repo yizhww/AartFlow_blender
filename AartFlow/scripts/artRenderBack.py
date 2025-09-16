@@ -126,11 +126,11 @@ classes.append(ArtRendererOperator)
 
 class VIEW3D_PT_ArtRendererPanel(bpy.types.Panel):
     """3D视图侧边栏中的Art Renderer面板"""
-    bl_label = "artrender_back"
+    bl_label = "artRenderBack"
     bl_idname = "VIEW3D_PT_art_renderer"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'artrender_back'
+    bl_category = 'artRenderBack'
     bl_context = "objectmode"
 
     def draw(self, context):

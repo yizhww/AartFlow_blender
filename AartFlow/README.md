@@ -28,14 +28,14 @@ AartFlow_Addon/
 │       ├── __init__.py              # 插件主入口
 │       ├── AARTFLOW_integration.py  # 集成管理器
 │       └── scripts/                 # 独立脚本目录
-│           ├── artrender_front.py   # 前端渲染脚本
-│           ├── artrender_back.py    # 后端渲染脚本
-│           ├── objectmeasure.py     # 对象测量脚本
-│           ├── dataplotting.py      # 数据绘图脚本
-│           ├── standardview.py      # 标准视图脚本
-│           ├── skylightsmanage.py   # 天窗管理脚本
-│           ├── skp_drag.py          # 拖拽支持脚本
-│           └── open_cmd.py          # 命令打开脚本
+│           ├── artRenderFront.py   # 前端渲染脚本
+│           ├── artRenderBack.py    # 后端渲染脚本
+│           ├── objectMeasure.py     # 对象测量脚本
+│           ├── dataPlotting.py      # 数据绘图脚本
+│           ├── standardView.py      # 标准视图脚本
+│           ├── skylightsManage.py   # 天窗管理脚本
+│           ├── skpDrag.py          # 拖拽支持脚本
+│           └── openCmd.py          # 命令打开脚本
 ├── manifest.json                    # 插件清单文件
 └── README.md                        # 说明文档
 ```

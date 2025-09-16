@@ -16,7 +16,7 @@ from bpy.types import FileHandler
 from bpy_extras.io_utils import ImportHelper
 
 # 全局变量存储拖拽的文件路径
-skp_drag_filepath = ""
+skpDrag_filepath = ""
 
 
 def process_skp_file(filepath):
@@ -40,7 +40,7 @@ class AF_OT_skp_drag_handler(bpy.types.Operator):
 
     def execute(self, context):
         """执行拖拽处理"""
-        global skp_drag_filepath
+        global skpDrag_filepath
         
         filepath = self.filepath
         if not filepath:
@@ -59,7 +59,7 @@ class AF_OT_skp_drag_handler(bpy.types.Operator):
 
         # 处理文件路径
         file_path = os.path.abspath(filepath)
-        skp_drag_filepath = file_path
+        skpDrag_filepath = file_path
         
         print(f"🟢 [SKP 拖拽处理器] 检测到 SKP 文件: {file_path}")
         self.report({'INFO'}, f"已接收 SKP 文件: {os.path.basename(file_path)}")
@@ -95,7 +95,7 @@ class AF_OT_skp_file_selector(bpy.types.Operator):
 
     def execute(self, context):
         """执行文件选择"""
-        global skp_drag_filepath
+        global skpDrag_filepath
         
         filepath = self.filepath
         if not filepath:
@@ -114,7 +114,7 @@ class AF_OT_skp_file_selector(bpy.types.Operator):
 
         # 处理文件路径
         file_path = os.path.abspath(filepath)
-        skp_drag_filepath = file_path
+        skpDrag_filepath = file_path
         
         print(f"🟢 [SKP 拖拽处理器] 检测到 SKP 文件: {file_path}")
         self.report({'INFO'}, f"已接收 SKP 文件: {os.path.basename(file_path)}")
@@ -182,7 +182,7 @@ class AF_OT_skp_drop_import(bpy.types.Operator, ImportHelper):
     bl_options = {'INTERNAL'}
 
     def execute(self, context):
-        global skp_drag_filepath
+        global skpDrag_filepath
         # 解析路径：优先 filepath，其次 files+directory
         filepath_value = self.filepath
         if not isinstance(filepath_value, str):
@@ -206,7 +206,7 @@ class AF_OT_skp_drop_import(bpy.types.Operator, ImportHelper):
         if not os.path.exists(filepath):
             self.report({'ERROR'}, f"文件不存在: {filepath}")
             return {'CANCELLED'}
-        skp_drag_filepath = filepath
+        skpDrag_filepath = filepath
         print(f"🟢 [SKP Drop] {skp_drag_filepath}")
         process_skp_file(skp_drag_filepath)
         return {'FINISHED'}

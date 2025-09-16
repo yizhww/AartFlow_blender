@@ -1404,7 +1404,7 @@ def _clear_all_integrations():
 
 def _force_unload_module_panels(module_key: str):
     """强制卸载属于指定模块的所有面板（非代理），通过 __module__ 前缀匹配。
-    例如模块键 standardview → bl_ext.aartflow_blender.standardview.*
+    例如模块键 standardView → bl_ext.aartflow_blender.standardView.*
     """
     try:
         prefix = f"{_EXT_NAMESPACE_PREFIX}.{(module_key or '').strip()}"

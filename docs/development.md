@@ -90,14 +90,14 @@ AartFlow_blender/
     ├── manifest.json                  # 插件清单文件
     ├── README.md                      # 插件详细说明
     └── scripts/                       # 业务脚本模块目录
-        ├── artrender_front.py         # 渲染前端模块
-        ├── artrender_back.py          # 渲染后端模块
-        ├── objectmeasure.py           # 对象测量工具
-        ├── dataplotting.py            # 数据可视化
-        ├── standardview.py            # 标准视图管理
-        ├── skylightsmanage.py         # 天窗管理
-        ├── skp_drag.py                # SKP 拖拽功能
-        └── open_cmd.py                # 命令行工具
+        ├── artRenderFront.py         # 渲染前端模块
+        ├── artRenderBack.py          # 渲染后端模块
+        ├── objectMeasure.py           # 对象测量工具
+        ├── dataPlotting.py            # 数据可视化
+        ├── standardView.py            # 标准视图管理
+        ├── skylightsManage.py         # 天窗管理
+        ├── skpDrag.py                # SKP 拖拽功能
+        └── openCmd.py                # 命令行工具
 ```
 
 ## 🧪 测试
