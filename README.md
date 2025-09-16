@@ -30,6 +30,9 @@ AartFlow 是一个高度模块化的 Blender 插件系统，专为 Blender 4.2+ 
 - [Code Review & Bug Tracker](https://github.com/yizhww/AartFlow_blender/issues) - 代码审查和问题跟踪
 - [Developer Forum](./docs/contributing.md) - 开发者论坛
 - [Developer Documentation](./docs/development.md) - 开发者文档
+- [Module Development Guide](./docs/module-development.md) - 模块开发规范
+- [Development Standards](./docs/development-standards.md) - 开发标准和规范
+- [Changelog](./CHANGELOG.md) - 版本更新日志
 
 ### License
 AartFlow is licensed under the GNU General Public License, Version 3. Individual files may have a different but compatible license.
