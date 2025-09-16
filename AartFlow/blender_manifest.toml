@@ -5,7 +5,7 @@ id = "aartflow_blender"
 
 # 扩展基本信息
 name = "AartFlow"
-version = "1.0.0"
+version = "1.0.1"
 tagline = "Modular Blender add-on integration system"
 type = "add-on"
 

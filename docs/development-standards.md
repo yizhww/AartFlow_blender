@@ -221,6 +221,34 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yizhww/AartFlow_blende
   - 等待数分钟或添加查询参数（例如 `?t=timestamp`）绕过缓存。
   - 紧急安装可临时改用原始链接作为索引（仅测试用）：`https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/index.json`。
 
+#### Archive checksum mismatch（sha256 不一致）
+
+- **错误现象**: `Archive checksum mismatch "<id>", expected sha256:<expected>, was sha256:<actual>`。
+- **根因**:
+  - `index.json` 中的 `archive_hash` 与真实 ZIP 的哈希不一致（重新打包后未同步元数据）。
+  - CDN/Pages 缓存返回了旧 ZIP（hash 与本地不同）。
+  - 下载链路被代理替换（极少数环境）。
+- **自检清单**:
+  - 本地计算 ZIP 哈希：
+    ```powershell
+    (Get-FileHash dist/AartFlow-1.0.1.zip -Algorithm SHA256).Hash.ToLower()
+    ```
+  - 远端校验 ZIP 哈希：
+    ```powershell
+    iwr https://raw.githubusercontent.com/yizhww/AartFlow_blender/main/dist/AartFlow-1.0.1.zip -OutFile _tmp.zip
+    (Get-FileHash _tmp.zip -Algorithm SHA256).Hash.ToLower()
+    Remove-Item _tmp.zip -Force
+    ```
+  - 若本地与远端一致，但与 `index.json` 不同 → 更新 `archive_hash`。
+  - 若本地与 `index.json` 一致，但远端不同 → 等待缓存或变更下载 URL（添加查询参数）。
+- **修复建议**:
+  - 同步 `index.json` 的 `archive_hash` 与 `archive_size`（以本地为准）。
+  - 避免频繁重打包；如需强制刷新，可将 `archive_url` 临时改为 `...?t=<timestamp>` 以穿透缓存。
+  - 验证 Pages 返回 200 且内容更新：
+    ```powershell
+    Invoke-WebRequest -Uri "https://yizhww.github.io/AartFlow_blender/index.json?t=$(Get-Date -UFormat %s)" -Method Get -UseBasicParsing | % Content
+    ```
+
 ### 4. 变更日志
 在每次发布时更新CHANGELOG.md：
 ```markdown

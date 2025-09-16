@@ -8,7 +8,7 @@ AartFlow Blender 插件
 bl_info = {
     "name": "AartFlow",
     "author": "AartFlow Team",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "blender": (4, 2, 0),
     "location": "View3D > Sidebar > AartFlow",
     "description": "AartFlow 艺术渲染和测量工具集",
