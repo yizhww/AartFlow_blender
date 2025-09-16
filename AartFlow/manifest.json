@@ -1,6 +1,6 @@
 {
     "name": "AartFlow",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "blender": "4.2.0",
     "author": "AartFlow Team",
     "description": "AartFlow 艺术渲染和测量工具集，提供专业的渲染、测量、数据绘图等功能",
