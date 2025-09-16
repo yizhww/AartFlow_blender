@@ -1,0 +1,32 @@
+{
+  "version": "v1",
+  "blocklist": [],
+  "data": [
+    {
+      "schema_version": "1.0.0",
+      "id": "aartflow_blender",
+      "name": "AartFlow",
+      "tagline": "Modular Blender add-on integration system",
+      "version": "1.0.1",
+      "type": "add-on",
+      "maintainer": "yizhww <yzh_1234@qq.com>",
+      "license": [
+        "SPDX:GPL-3.0-or-later"
+      ],
+      "blender_version_min": "4.2.0",
+      "blender_version_max": "4.7.0",
+      "website": "https://github.com/yizhww/AartFlow_blender",
+      "tags": [
+        "Render",
+        "UI",
+        "Measurement",
+        "Visualization"
+      ],
+      "archive_url": "https://github.com/yizhww/AartFlow_blender/releases/download/v1.0.1/AartFlow-1.0.1.zip",
+      "archive_size": 89164,
+      "archive_hash": "sha256:914ed085ad6bda47d913977333073f429dcbe585daa5730877ca0e443b5ec18e"
+    }
+  ]
+}
+
+
