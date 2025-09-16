@@ -16,6 +16,8 @@
 
 AartFlow 是一个高度模块化的 Blender 插件系统，专为 Blender 4.2+ 设计。它通过智能集成器动态发现并整合多个独立脚本模块，为 Blender 用户提供统一、可扩展的工作流解决方案。项目采用代理面板机制，保持各模块的独立性，同时提供统一的用户界面。
 
+快速开始：在 Blender 4.2+ 的“编辑 > 偏好设置 > 扩展”中，将 `https://yizhww.github.io/AartFlow_blender/index.json` 添加为外部扩展库，随后在“获取扩展”中搜索 AartFlow 并安装启用。
+
 ## 文档索引
 
 ### Project Pages
