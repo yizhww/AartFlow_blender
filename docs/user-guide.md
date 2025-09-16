@@ -20,17 +20,41 @@
 
 ## 🚀 快速开始
 
+### 安装插件
+
+#### 方法一：通过 GitHub Releases（推荐）
+1. 访问 [Releases](https://github.com/yizhww/AartFlow_blender/releases) 页面
+2. 下载最新版本的 `AartFlow-版本号.zip` 文件
+3. 打开 Blender，前往 **编辑** > **偏好设置** > **插件**
+4. 点击 **安装...** 按钮，选择下载的 ZIP 文件
+5. 在插件列表中搜索 "AartFlow" 并启用
+
+#### 方法二：手动安装
+1. 克隆或下载此仓库到本地
+2. 将 `AartFlow/` 目录复制到 Blender 插件目录：
+   - **Windows**: `%APPDATA%\Blender Foundation\Blender\4.2\scripts\addons\`
+   - **macOS**: `~/Library/Application Support/Blender Foundation/Blender/4.2/scripts/addons/`
+   - **Linux**: `~/.config/blender/4.2/scripts/addons/`
+3. 重启 Blender 或重新加载插件
+
+### 系统要求
+- **Blender**: 4.2.0 或更高版本
+- **Python**: 3.10 或更高版本
+- **操作系统**: Windows 10+, macOS 10.15+, Linux
+
+### 验证安装
+安装完成后，在 Blender 中：
+1. 打开 3D 视图的侧边栏（按 N 键）
+2. 查找 "AartFlow" 标签页
+3. 如果看到 AartFlow 面板，说明安装成功
+
 ### 5分钟快速上手
 
-#### 第一步：安装插件
-1. 下载并安装 AartFlow 插件（参考 [安装指南](installation.md)）
-2. 在 Blender 中启用插件
-
-#### 第二步：访问主面板
+#### 第一步：访问主面板
 1. 在 3D 视图的侧边栏（按 N 键）中找到 "AartFlow" 标签
 2. 点击展开 AartFlow 主面板
 
-#### 第三步：添加模块
+#### 第二步：添加模块
 有两种方式添加模块：
 
 **方式一：自动发现**
@@ -42,7 +66,7 @@
 2. 选择要集成的脚本文件
 3. 模块会自动加载到主面板
 
-#### 第四步：使用功能
+#### 第三步：使用功能
 1. 使用 **F5** 键快速呼出饼菜单访问常用功能
 2. 在各个模块面板中使用具体功能
 3. 使用模块管理工具进行配置
@@ -123,7 +147,6 @@
 ### 基础教程
 
 #### 1. 插件安装与配置
-- [安装指南](installation.md) - 详细的安装步骤
 - 插件配置和首选项设置
 - 模块路径配置
 
@@ -316,7 +339,6 @@ A:
 
 - [返回文档中心](README.md)
 - [开发指南](development-guide.md)
-- [项目管理](project-management.md)
 - [贡献与支持](contributing-and-support.md)
 
 ---
